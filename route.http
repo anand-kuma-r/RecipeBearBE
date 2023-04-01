@@ -1,0 +1,30 @@
+POST http://localhost:3000/recipes
+Content-Type: application/json
+
+{
+    "name": "Pomegranate Yogurt Bowl",
+    "ingredients": "For each bowl: 
+a big dollop of Greek yogurt
+2 tablespoons fresh pomeg…",
+    "url": "http://www.101cookbooks.com/archives/moroccan-carrot-and-chickpea-salad-recipe.html",
+    "image": "http://www.101cookbooks.com/mt-static/images/food/moroccan_carrot_salad_recipe.jpg",
+    "prepTime": "15 min",
+    "description": "it is yum"
+}
+
+###
+
+GET http://localhost:3000/recipes
+
+###
+
+GET http://localhost:3000/recipes/64222153e6e23dd76d83f089
+
+###
+
+PATCH http://localhost:3000/recipes/64222153e6e23dd76d83f089
+Content-Type: application/json
+
+{
+    "prepTime":"PT10M"
+}
