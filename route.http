@@ -26,5 +26,13 @@ PATCH http://localhost:3000/recipes/64222153e6e23dd76d83f089
 Content-Type: application/json
 
 {
-    "prepTime":"PT10M"
+    "dinner":"true"
 }
+
+###
+
+GET http://localhost:3000/recipes/search/apple
+
+###
+
+GET http://localhost:3000/recipes/dessert

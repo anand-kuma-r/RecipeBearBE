@@ -10,6 +10,51 @@ router.get('/', async (req, res)=> {
     res.status(500).json({ message: err.message })
  }
 })
+// Getting searched items
+router.get('/search/:id', async (req, res)=> {
+    try{
+       const recipes = await Recipe.find({$text: {$search: req.params.id }}, {score: {$meta: "textScore"}}).sort({score: {$meta: "textScore"}})
+       res.json(recipes)
+    } catch (err){
+       res.status(500).json({ message: err.message })
+    }
+   })
+// Getting only desserts
+router.get('/dessert', async (req, res)=> {
+    try{
+       const recipes = await Recipe.find({ dessert: true })
+       res.json(recipes)
+    } catch (err){
+       res.status(500).json({ message: err.message })
+    }
+   })
+// Getting only breakfast
+router.get('/breakfast', async (req, res)=> {
+    try{
+       const recipes = await Recipe.find({ breakfast: true })
+       res.json(recipes)
+    } catch (err){
+       res.status(500).json({ message: err.message })
+    }
+   })
+// Getting only lunch
+router.get('/lunch', async (req, res)=> {
+    try{
+       const recipes = await Recipe.find({ lunch: true })
+       res.json(recipes)
+    } catch (err){
+       res.status(500).json({ message: err.message })
+    }
+   })
+// Getting only dinner
+router.get('/dinner', async (req, res)=> {
+    try{
+       const recipes = await Recipe.find({ dinner: true })
+       res.json(recipes)
+    } catch (err){
+       res.status(500).json({ message: err.message })
+    }
+   })
 // Getting one
 router.get('/:id', getRecipe,(req, res)=> { //notice getRecipe middleware.
  res.json(res.recipe)
